@@ -1,5 +1,5 @@
 # Identicon
-
+[![Tests](https://github.com/FernandoHenning/Identicon/actions/workflows/dotnet.yml/badge.svg?branch=master&event=push)](https://github.com/FernandoHenning/Identicon/actions/workflows/dotnet.yml)  
 This Identicon Generator generates unique, visually appealing identicons based on input strings. Identicons are often used as avatars or icons in various applications, such as GitHub, to reprensent users or entities uniquely. This project provides a simple way to create identicons programmatically.
 
 ## Prerequisites
