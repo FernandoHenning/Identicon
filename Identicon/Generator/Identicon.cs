@@ -18,14 +18,15 @@ namespace Generator
 		public Identicon(string input)
 		{	
 			_input = input;
-			_hash = GetHash();
+			_hash = GetInputHash();
 			_foregroundColor = GetColorFromHash();
 			_grid = GenerateGridFromHash();
 		}
 
 		public bool[][] GetGrid() => _grid;
 		public int GetForegroundColor() => _foregroundColor;
-		
+		public byte[] GetHash() => _hash;
+
 		private bool[][] GenerateGridFromHash()
 		{
 			if(_hash.Length <9)
@@ -65,7 +66,7 @@ namespace Generator
 		}
 
 
-		private byte[] GetHash()
+		private byte[] GetInputHash()
 		{
 			using(MD5 hasher = MD5.Create())
 			{

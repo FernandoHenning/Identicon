@@ -1,6 +1,4 @@
-# Vim stuff
-temp/
-#Swap
+wap
 [._]*.s[a-v][a-z]
 !*.svg  # comment out if you don't need vector files
 [._]*.sw[a-p]
@@ -311,3 +309,4 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
