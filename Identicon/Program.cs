@@ -1,16 +1,37 @@
 ﻿using Generator;
-
+using Helper;
 using Spectre.Console;
+
 
 var userInput = PromptInput();
 var identicon = new Identicon(userInput);
 
 PrintIdenticon(identicon.GetGrid(), identicon.GetForegroundColor());
+PromptSaveImage();
+
 
 string PromptInput()
 {
 	var input = AnsiConsole.Ask<string>("What's your [green]email? [/]");
 	return input;
+}
+
+
+void PromptSaveImage()
+{
+	if (AnsiConsole.Confirm("Save as PNG image?"))
+	{
+		var imageHelper = new ImageHelper();
+		byte[] imageData = imageHelper.GenerateImageFromGrid(identicon.GetGrid(), identicon.GetForegroundColor());
+		try
+		{
+			imageHelper.WriteImageToDisk(imageData, $"{userInput}-identicon.png");
+		}
+		catch(Exception)
+		{
+			AnsiConsole.WriteLine("[red]Something went wrong while saving the image!:([/]");
+		}
+	}
 }
 
 void PrintIdenticon(bool[][] grid, int foregroundColor)
@@ -38,5 +59,4 @@ void PrintIdenticon(bool[][] grid, int foregroundColor)
 	}
 	AnsiConsole.Write(canvas);
 }
-
 
