@@ -8,7 +8,7 @@ namespace IdenticonTests
         public void GetGrid_ProducesSymmetricalGrid()
         {
             var identicon = new Identicon("test");
-            bool[][] grid = identicon.GetGrid();
+            bool[][] grid = identicon.Grid;
 
             for (int i = 0; i < grid.Length; i++)
             {
@@ -23,9 +23,9 @@ namespace IdenticonTests
 	public void GetForegroundColor_ReturnsExpectedColor()
 	{
 		var identicon = new Identicon("test");
-		int color = identicon.GetForegroundColor();
+		int color = identicon.ForegroundColor;
 
-		byte[] hash = identicon.GetHash();
+		byte[] hash = identicon.Hash;
 
 		int expectedColor = (hash[0] << 16) | (hash[1] << 8) | hash[2];
 
